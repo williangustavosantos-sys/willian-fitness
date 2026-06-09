@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --gold: #C9A96E;
+  --gold-light: #DFC08A;
+  --gold-dark: #A8843E;
+  --obsidian: #0a0a0a;
+  --obsidian-50: #1a1a1a;
+  --obsidian-100: #111111;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--obsidian);
+  color: #fff;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gold shimmer text */
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 30%,
+    var(--gold) 50%,
+    var(--gold-light) 70%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Gold divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Button styles */
+.btn-gold {
+  @apply inline-flex items-center gap-2 px-8 py-4 bg-gold text-obsidian font-semibold text-sm tracking-widest uppercase transition-all duration-300;
+}
+.btn-gold:hover {
+  @apply bg-gold-light;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(201, 169, 110, 0.35);
+}
+
+.btn-outline-gold {
+  @apply inline-flex items-center gap-2 px-8 py-4 border border-gold text-gold font-semibold text-sm tracking-widest uppercase transition-all duration-300;
+}
+.btn-outline-gold:hover {
+  @apply bg-gold text-obsidian;
+  transform: translateY(-1px);
+}
+
+.btn-white {
+  @apply inline-flex items-center gap-2 px-8 py-4 bg-white text-obsidian font-semibold text-sm tracking-widest uppercase transition-all duration-300;
+}
+.btn-white:hover {
+  background: #e8e8e8;
+  transform: translateY(-1px);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(201, 169, 110, 0.12);
+}
+
+/* Section label */
+.section-label {
+  @apply text-gold text-xs font-semibold tracking-widest uppercase;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--obsidian); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
