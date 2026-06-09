@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MessageCircle, Mail, MapPin, Instagram } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Camera } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
 const WHATSAPP = "+393428369444";
@@ -89,7 +89,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="w-10 h-10 border border-white/10 flex items-center justify-center text-white/40 hover:border-gold hover:text-gold transition-all"
             >
-              <Instagram size={16} />
+              <Camera size={16} />
             </a>
           </div>
         </div>
