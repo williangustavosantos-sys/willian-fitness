@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Manrope } from "next/font/google";
+import { Archivo_Black, Inter } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/lib/LocaleContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import RevealOnScroll from "@/components/RevealOnScroll";
 
-const display = Barlow_Condensed({
+const display = Archivo_Black({
   subsets: ["latin"],
-  weight: ["700", "800", "900"],
-  style: ["normal", "italic"],
+  weight: "400",
   variable: "--font-display",
   display: "swap",
 });
 
-const body = Manrope({
+const body = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-body",
@@ -32,35 +29,33 @@ const metadataBase = deploymentHost
 
 export const metadata: Metadata = {
   metadataBase,
-  title: "Willian Gustavo | Treino de verdade para a vida real",
-  description: "Personal trainer brasileiro em Milão e consultoria online. Treino personalizado, conteúdo fitness direto e parcerias com propósito.",
-  keywords: ["personal trainer Milão", "consultoria online fitness", "treino personalizado", "personal trainer brasileiro", "conteúdo fitness", "Willian Gustavo"],
+  title: "Willian Personal Trainer | Allenamento a Milano e online",
+  description: "Allenamenti personali a Milano e programmi online costruiti intorno alla tua vita. Parla direttamente con Willian.",
+  keywords: ["personal trainer Milano", "allenamento online", "personal trainer brasiliano Milano", "fitness Milano", "Willian personal trainer"],
   openGraph: {
-    title: "Willian Gustavo | Treino de verdade para a vida real",
-    description: "Consultoria online, personal em Milão e conteúdo fitness sem complicação.",
+    title: "Willian Personal Trainer | Milano e online",
+    description: "Il tuo allenamento deve adattarsi alla tua vita, non il contrario.",
     type: "website",
     images: metadataBase
-      ? [{ url: "/og.png", width: 1731, height: 909, alt: "Willian Gustavo — treino de verdade para a vida real" }]
+      ? [{ url: "/og.png", width: 1200, height: 630, alt: "Willian Personal Trainer — Milano e online" }]
       : undefined,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Willian Gustavo | Treino de verdade para a vida real",
-    description: "Consultoria online, personal em Milão e conteúdo fitness sem complicação.",
+    title: "Willian Personal Trainer | Milano e online",
+    description: "Il tuo allenamento deve adattarsi alla tua vita, non il contrario.",
     images: metadataBase ? ["/og.png"] : undefined,
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt" className={`${display.variable} ${body.variable}`}>
+    <html lang="it" className={`${display.variable} ${body.variable}`}>
       <body>
         <LocaleProvider>
           <Header />
           <main>{children}</main>
           <Footer />
-          <WhatsAppButton />
-          <RevealOnScroll />
         </LocaleProvider>
       </body>
     </html>

@@ -1,11 +1,11 @@
 export type Locale = "pt" | "en" | "it";
 
-export const defaultLocale: Locale = "pt";
+export const defaultLocale: Locale = "it";
 
 export const localeNames: Record<Locale, string> = {
-  pt: "PT",
-  en: "EN",
   it: "IT",
+  en: "EN",
+  pt: "PT",
 };
 
 export const translations = {
