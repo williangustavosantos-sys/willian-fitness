@@ -9,6 +9,7 @@ import {
   Check,
   ChevronRight,
   CircleAlert,
+  Clock3,
   ExternalLink,
   MapPin,
   MessageCircle,
@@ -30,6 +31,7 @@ const copy = {
       reveal: "Scopri la risposta",
       contact: "Parliamone su WhatsApp",
       swipe: "Scegli la domanda che ti rappresenta",
+      timer: "Prossima domanda tra",
       questions: [
         ["Pensi di non avere tempo per allenarti?", "Adatto l’allenamento alla tua routine, con sessioni efficaci da 20, 30 o 45 minuti."],
         ["Ti alleni, ma il tuo corpo non cambia?", "Analizzo la tua routine, individuo ciò che sta bloccando i risultati e costruisco un piano davvero personale."],
@@ -141,6 +143,7 @@ const copy = {
       reveal: "See the answer",
       contact: "Talk on WhatsApp",
       swipe: "Choose the question that sounds like you",
+      timer: "Next question in",
       questions: [
         ["Do you feel like you never have time to train?", "I shape training around your actual schedule, with focused 20, 30 or 45-minute sessions."],
         ["You train, but your body still looks the same?", "I review your routine, find what is holding progress back and build a genuinely personal plan."],
@@ -173,7 +176,7 @@ const copy = {
   },
   pt: {
     hero: {
-      context: "Milão · Online · IT / EN / PT", reveal: "Ver a resposta", contact: "Conversar no WhatsApp", swipe: "Escolha a pergunta que mais parece com você",
+      context: "Milão · Online · IT / EN / PT", reveal: "Ver a resposta", contact: "Conversar no WhatsApp", swipe: "Escolha a pergunta que mais parece com você", timer: "Próxima pergunta em",
       questions: [["Você acha que não tem tempo para treinar?", "Eu adapto o treino exatamente à sua rotina, com sessões eficientes de 20, 30 ou 45 minutos."], ["Você treina, mas seu corpo continua o mesmo?", "Eu analiso sua rotina, identifico o que está impedindo seus resultados e monto um plano realmente personalizado."], ["Está em Milão por poucos dias e não sabe onde ou com quem treinar?", "Eu organizo tudo para que você continue treinando durante sua viagem sem perder sua rotina."], ["Quem disse que treinar precisa ser chato?", "Meu objetivo é criar treinos que você tenha vontade de repetir, não apenas terminar."]],
     },
     solutions: { eyebrow: "Soluções, não fórmulas", title: "Primeiro, o problema. Depois, a solução.", intro: "Nada de plano genérico. O ponto de partida é a sua vida real.", items: [["Pouco tempo", "Sessões objetivas, duração flexível e prioridades claras.", "20 · 30 · 45 min"], ["Progresso parado", "Análise da rotina, ajustes precisos e objetivos mensuráveis.", "Online ou presencial"], ["Rotina imprevisível", "Um plano que acompanha trabalho, viagens e semanas diferentes.", "Sempre acessível"], ["Treino sem graça", "Variedade com lógica para você querer repetir, não só terminar.", "Mais constância"]] },
@@ -200,6 +203,7 @@ export default function HomeLanding() {
   const c = copy[locale] ?? copy.it;
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answerVisible, setAnswerVisible] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(5);
   const heroRef = useRef<HTMLElement>(null);
 
   const whatsappMessage = encodeURIComponent(
@@ -219,9 +223,25 @@ export default function HomeLanding() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setSecondsLeft((current) => {
+        if (current <= 1) {
+          setActiveQuestion((question) => (question + 1) % c.hero.questions.length);
+          setAnswerVisible(false);
+          return 5;
+        }
+        return current - 1;
+      });
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+  }, [c.hero.questions.length]);
+
   const chooseQuestion = (index: number) => {
     setActiveQuestion(index);
     setAnswerVisible(false);
+    setSecondsLeft(5);
   };
 
   const moveQuestion = (direction: number) => {
@@ -238,7 +258,13 @@ export default function HomeLanding() {
         <div className="cr-shell cr-hero-inner">
           <div className="cr-hero-topline">
             <span>{c.hero.context}</span>
-            <span>{String(activeQuestion + 1).padStart(2, "0")} / 04</span>
+            <div className="cr-hero-status">
+              <span>{String(activeQuestion + 1).padStart(2, "0")} / 04</span>
+              <span className="cr-timer" aria-label={`${c.hero.timer} ${secondsLeft}s`}>
+                <Clock3 size={12} aria-hidden="true" />
+                <span>{secondsLeft}s</span>
+              </span>
+            </div>
           </div>
 
           <div className="cr-hero-content">

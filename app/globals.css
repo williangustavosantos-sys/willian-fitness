@@ -40,6 +40,8 @@ button { font: inherit; }
 .cr-hero-shade::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(17,24,39,.2), rgba(17,24,39,.04) 52%, rgba(17,24,39,.84)); }
 .cr-hero-inner { position: relative; z-index: 1; display: grid; min-height: 100svh; grid-template-rows: auto 1fr auto; padding-top: 6.4rem; padding-bottom: 1.5rem; }
 .cr-hero-topline { display: flex; justify-content: space-between; gap: 1rem; color: rgba(248,250,252,.7); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.cr-hero-status { display: flex; align-items: center; gap: .75rem; }
+.cr-timer { display: inline-flex; min-width: 3.15rem; align-items: center; justify-content: center; gap: .35rem; border: 1px solid rgba(248,250,252,.3); border-radius: 999px; padding: .35rem .5rem; color: var(--lime); font-variant-numeric: tabular-nums; letter-spacing: .06em; }
 .cr-hero-content { align-self: center; padding-block: 3rem; }
 .cr-question { display: block; width: 100%; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
 .cr-question h1 { max-width: 15ch; font-family: var(--font-display); font-size: clamp(2.75rem, 11.5vw, 8.5rem); font-weight: 400; line-height: .92; letter-spacing: -.055em; text-wrap: balance; }
