@@ -301,7 +301,7 @@ export default function HomeLanding() {
         </div>
       </section>
 
-      <section id="soluzioni" className="cr-section cr-section-main">
+      <section id="soluzioni" className="cr-section cr-section-light">
         <div className="cr-shell">
           <div className="cr-heading-grid">
             <div><p className="cr-eyebrow">{c.solutions.eyebrow}</p><h2>{c.solutions.title}</h2></div>
@@ -340,7 +340,7 @@ export default function HomeLanding() {
         </div>
       </section>
 
-      <section id="come-funziona" className="cr-section cr-section-main">
+      <section id="come-funziona" className="cr-section cr-section-light">
         <div className="cr-shell">
           <p className="cr-eyebrow">{c.process.eyebrow}</p>
           <h2 className="cr-process-title">{c.process.title}</h2>
@@ -367,7 +367,7 @@ export default function HomeLanding() {
         </div>
       </section>
 
-      <section id="instagram" className="cr-section cr-section-main">
+      <section id="instagram" className="cr-section cr-section-light">
         <div className="cr-shell">
           <div className="cr-heading-row">
             <div><p className="cr-eyebrow">{c.social.eyebrow}</p><h2>{c.social.title}</h2></div>
@@ -449,7 +449,7 @@ export default function HomeLanding() {
         </div>
       </section>
 
-      <section id="faq" className="cr-section cr-section-alt">
+      <section id="faq" className="cr-section cr-section-light">
         <div className="cr-shell cr-faq-grid">
           <div><p className="cr-eyebrow">{c.faq.eyebrow}</p><h2>{c.faq.title}</h2></div>
           <div className="cr-faq-list">
