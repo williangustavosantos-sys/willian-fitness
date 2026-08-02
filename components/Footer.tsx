@@ -9,9 +9,9 @@ const EMAIL = "Profwillgustavo@gmail.com";
 const INSTAGRAM = "https://www.instagram.com/willian.personaltrainer/";
 
 const copy = {
-  it: { tagline: "Allenamento costruito per la vita reale.", nav: "Esplora", contact: "Contatti", links: [["Soluzioni", "/#soluzioni"], ["Programmi", "/#programmi"], ["Come funziona", "/#come-funziona"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milano, Italia · programmi online", rights: "Tutti i diritti riservati." },
-  en: { tagline: "Training built around real life.", nav: "Explore", contact: "Contact", links: [["Solutions", "/#soluzioni"], ["Programs", "/#programmi"], ["How it works", "/#come-funziona"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milan, Italy · online programs", rights: "All rights reserved." },
-  pt: { tagline: "Treino construído para a vida real.", nav: "Explore", contact: "Contato", links: [["Soluções", "/#soluzioni"], ["Programas", "/#programmi"], ["Como funciona", "/#come-funziona"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milão, Itália · programas online", rights: "Todos os direitos reservados." },
+  it: { tagline: "Allenamento costruito per la vita reale.", nav: "Esplora", contact: "Contatti", links: [["Soluzioni", "/#soluzioni"], ["Programmi", "/#programmi"], ["Storie reali", "/#storie"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milano, Italia · programmi online", rights: "Tutti i diritti riservati." },
+  en: { tagline: "Training built around real life.", nav: "Explore", contact: "Contact", links: [["Solutions", "/#soluzioni"], ["Programs", "/#programmi"], ["Real stories", "/#storie"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milan, Italy · online programs", rights: "All rights reserved." },
+  pt: { tagline: "Treino construído para a vida real.", nav: "Explore", contact: "Contato", links: [["Soluções", "/#soluzioni"], ["Programas", "/#programmi"], ["Histórias reais", "/#storie"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milão, Itália · programas online", rights: "Todos os direitos reservados." },
 } as const;
 
 export default function Footer() {

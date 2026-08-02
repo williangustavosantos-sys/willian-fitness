@@ -8,9 +8,12 @@ import {
   Camera,
   Check,
   ChevronRight,
+  CircleAlert,
   ExternalLink,
   MapPin,
   MessageCircle,
+  Route,
+  TrendingUp,
 } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
@@ -18,6 +21,7 @@ const WHATSAPP = "393428369444";
 const INSTAGRAM = "https://www.instagram.com/willian.personaltrainer/";
 
 const reelIds = ["Dafeuo0SOHU", "DZQqT_1iuNO", "DX7HzZMC2Gc"];
+const storyIcons = [CircleAlert, Route, TrendingUp];
 
 const copy = {
   it: {
@@ -73,6 +77,37 @@ const copy = {
       intro: "Contenuti diretti, senza personaggi e senza formule miracolose.",
       cta: "Segui @willian.personaltrainer",
     },
+    stories: {
+      eyebrow: "Storie reali",
+      title: "Ogni persona ha la sua routine. Ogni routine merita un piano diverso.",
+      intro: "Non esiste un allenamento perfetto per tutti. Esiste quello giusto per ogni persona.",
+      labels: ["La sfida", "La soluzione", "Il risultato"],
+      fullStory: "Leggi la storia completa",
+      mediaLabels: ["Prima", "Dopo"],
+      items: [
+        {
+          flag: "🇧🇷", name: "Paulo", country: "Brasile", summary: "Un viaggio di lavoro a Milano",
+          challenge: "Paulo sarebbe rimasto a Milano soltanto una settimana per lavoro e non voleva interrompere la sua routine di allenamento durante il viaggio.",
+          solution: "Abbiamo creato un piano adatto ai giorni disponibili durante il soggiorno. Dopo il rientro in Brasile, abbiamo continuato il percorso online per mantenere la costanza.",
+          result: "Anche una volta tornato in Brasile, è riuscito a mantenere la routine e a continuare a progredire senza interrompere il percorso.",
+          media: { photo: "", video: "", beforeAfter: [] }, href: "",
+        },
+        {
+          flag: "🇮🇹", name: "Mark", country: "Italia", summary: "Allenarsi era un obbligo",
+          challenge: "Mark non amava la palestra: trovava gli allenamenti ripetitivi e monotoni.",
+          solution: "Abbiamo scoperto che la musica era una delle sue motivazioni più forti. Ho costruito le sessioni intorno alle sue playlist preferite, rendendole più dinamiche e piacevoli.",
+          result: "L’allenamento ha smesso di essere un obbligo ed è entrato naturalmente nella sua routine, aumentando la costanza.",
+          media: { photo: "", video: "", beforeAfter: [] }, href: "",
+        },
+        {
+          flag: "🇯🇵", name: "Shen", country: "Giappone", summary: "Poco tempo e dolori muscolari frequenti",
+          challenge: "Shen lavorava molte ore al giorno e pensava di non avere tempo per prendersi cura della propria salute. Inoltre, soffriva spesso di dolori muscolari.",
+          solution: "Ho iniziato a seguirlo a casa, adattando ogni allenamento al tempo realmente disponibile, senza chiedergli di stravolgere le sue giornate.",
+          result: "I dolori muscolari si sono ridotti in modo significativo e il percorso continua ancora oggi, rispettando i suoi ritmi di vita e di lavoro.",
+          media: { photo: "", video: "", beforeAfter: [] }, href: "",
+        },
+      ],
+    },
     milan: {
       eyebrow: "Allenarsi a Milano",
       title: "La tua routine non deve fermarsi quando viaggi.",
@@ -124,6 +159,14 @@ const copy = {
     process: { eyebrow: "How it works", title: "Simple from day one.", steps: [["01", "We talk"], ["02", "We plan"], ["03", "You start"], ["04", "I stay close"]] },
     about: { eyebrow: "Willian, without the endless résumé", title: "Expertise when it matters. Support throughout.", text: "I’m Brazilian, based in Milan, and I work with people who want to feel better in their bodies without turning fitness into a second job.", facts: ["Physical Education professional", "Over 9 years of experience", "Brazilian based in Milan", "Italiano · English · Português"], cta: "Tell me your goal" },
     social: { eyebrow: "From my Instagram", title: "Training, ideas and real life.", intro: "Straightforward content, without characters or miracle formulas.", cta: "Follow @willian.personaltrainer" },
+    stories: {
+      eyebrow: "Real stories", title: "Every person has a routine. Every routine deserves a different plan.", intro: "There is no perfect workout for everyone. There is a right way to train for each person.", labels: ["The challenge", "The solution", "The result"], fullStory: "Read the full story", mediaLabels: ["Before", "After"],
+      items: [
+        { flag: "🇧🇷", name: "Paulo", country: "Brazil", summary: "A business trip to Milan", challenge: "Paulo was spending just one week in Milan for work and did not want travel to interrupt his training routine.", solution: "We built a plan around the days available during his stay. Once he returned to Brazil, we continued online so he could keep the same consistency.", result: "Back in Brazil, he kept training and continued to make progress without breaking the process.", media: { photo: "", video: "", beforeAfter: [] }, href: "" },
+        { flag: "🇮🇹", name: "Mark", country: "Italy", summary: "Training felt like an obligation", challenge: "Mark did not enjoy the gym because workouts felt repetitive and monotonous.", solution: "We discovered that music was one of his strongest motivators. I shaped his sessions around his favourite playlists to make training more dynamic and enjoyable.", result: "Training stopped feeling like a chore and became a natural part of his routine, making it easier to stay consistent.", media: { photo: "", video: "", beforeAfter: [] }, href: "" },
+        { flag: "🇯🇵", name: "Shen", country: "Japan", summary: "Very little time and frequent muscle pain", challenge: "Shen worked long hours and believed there was no room in his day to look after his health. He also dealt with frequent muscle pain.", solution: "I began training him at home, adapting every session to the time he genuinely had, without asking him to make drastic changes to his day.", result: "His muscle pain reduced significantly, and we still work together today at a pace that respects his life and workload.", media: { photo: "", video: "", beforeAfter: [] }, href: "" },
+      ],
+    },
     milan: { eyebrow: "Training in Milan", title: "Your routine does not have to stop when you travel.", text: "If you are in Milan for work, tourism or a longer stay, I arrange a simple training experience built around your time.", groups: ["Travellers", "Professionals", "Hotels", "Parks", "Gyms"], cta: "Arrange your Milan session" },
     faq: { eyebrow: "Real questions", title: "Before you message me, you may want to know this.", items: [["I’m not fit. Can I still start?", "Yes. Your starting level helps shape the right plan; it never decides whether you belong."], ["How long should a workout take?", "It depends on your week. A well-built 20 or 30-minute session can be more useful than an improvised hour."], ["Can I train at a hotel or in a park?", "Yes. I adapt the space and equipment to where you are, without making travel complicated."], ["I’m only in Milan for a few days. Is it worth contacting you?", "Yes. We can arrange a single session or a short series during your stay."], ["Do you coach outside Italy?", "Yes. Online programs are available in Italian, English and Portuguese."], ["Do I need an extreme diet?", "No. My work starts with training, routine and sustainable habits. Clinical nutrition needs are handled with the right qualified professionals."]] },
     final: { eyebrow: "The simplest next step", title: "What problem do you want to solve?", text: "Message me. I will reply personally and we will see if I can help.", cta: "Talk to Willian", note: "Direct reply · No bot · No obligation" },
@@ -138,6 +181,14 @@ const copy = {
     process: { eyebrow: "Como funciona", title: "Simples desde o início.", steps: [["01", "Conversamos"], ["02", "Planejamos"], ["03", "Você começa"], ["04", "Eu acompanho"]] },
     about: { eyebrow: "Willian, sem currículo infinito", title: "Conhecimento quando importa. Presença sempre.", text: "Sou brasileiro, vivo em Milão e trabalho com pessoas que querem se sentir melhor no próprio corpo sem transformar o fitness em um segundo emprego.", facts: ["Professor de Educação Física", "Mais de 9 anos de experiência", "Brasileiro vivendo em Milão", "Italiano · English · Português"], cta: "Conte seu objetivo" },
     social: { eyebrow: "Do meu Instagram", title: "Treino, ideias e vida real.", intro: "Conteúdo direto, sem personagem e sem fórmula milagrosa.", cta: "Seguir @willian.personaltrainer" },
+    stories: {
+      eyebrow: "Histórias reais", title: "Cada pessoa tem uma rotina. Cada rotina merece um plano diferente.", intro: "Não existe um treino perfeito para todo mundo. Existe o treino certo para cada pessoa.", labels: ["O desafio", "A solução", "O resultado"], fullStory: "Ler a história completa", mediaLabels: ["Antes", "Depois"],
+      items: [
+        { flag: "🇧🇷", name: "Paulo", country: "Brasil", summary: "Viagem de trabalho para Milão", challenge: "Paulo passaria apenas uma semana em Milão trabalhando e não queria interromper sua rotina de treinos durante a viagem.", solution: "Criamos um plano adaptado aos dias disponíveis durante sua estadia e, após seu retorno ao Brasil, continuamos o acompanhamento online para manter a consistência.", result: "Mesmo voltando ao Brasil, conseguiu manter a rotina de exercícios e continuar evoluindo sem interromper o processo.", media: { photo: "", video: "", beforeAfter: [] }, href: "" },
+        { flag: "🇮🇹", name: "Mark", country: "Itália", summary: "Treinar era uma obrigação", challenge: "Mark não gostava de academia porque considerava os treinos repetitivos e monótonos.", solution: "Descobrimos que a música era uma das suas maiores motivações. Adaptamos os treinos utilizando suas playlists favoritas para tornar cada sessão mais dinâmica e prazerosa.", result: "O treino deixou de ser uma obrigação e passou a fazer parte da rotina naturalmente, aumentando sua consistência.", media: { photo: "", video: "", beforeAfter: [] }, href: "" },
+        { flag: "🇯🇵", name: "Shen", country: "Japão", summary: "Pouco tempo e dores musculares constantes", challenge: "Shen trabalhava muitas horas por dia e acreditava que não tinha tempo para cuidar da saúde. Além disso, sofria frequentemente com dores musculares.", solution: "Passei a atendê-lo em sua residência, adaptando cada treino ao tempo disponível em sua rotina, sem exigir mudanças radicais no seu dia a dia.", result: "As dores musculares diminuíram significativamente e o acompanhamento continua até hoje, respeitando sua rotina e seu ritmo de trabalho.", media: { photo: "", video: "", beforeAfter: [] }, href: "" },
+      ],
+    },
     milan: { eyebrow: "Treinar em Milão", title: "Sua rotina não precisa parar quando você viaja.", text: "Se você está em Milão a trabalho, turismo ou por um período maior, eu organizo uma experiência de treino simples e adaptada ao seu tempo.", groups: ["Turistas", "Profissionais", "Hotéis", "Parques", "Academias"], cta: "Organizar meu treino em Milão" },
     faq: { eyebrow: "Perguntas reais", title: "Antes de falar comigo, talvez você queira saber isso.", items: [["Não estou em forma. Posso começar mesmo assim?", "Sim. Seu nível atual serve para definir o caminho, nunca para decidir se você pode começar."], ["Quanto tempo um treino precisa durar?", "Depende da sua semana. Uma sessão bem construída de 20 ou 30 minutos pode ser mais útil do que uma hora improvisada."], ["Posso treinar em hotel ou parque?", "Sim. Eu adapto espaço e equipamento ao lugar onde você está, sem complicar sua viagem."], ["Vou ficar poucos dias em Milão. Vale a pena falar com você?", "Sim. Podemos organizar uma sessão única ou um pequeno ciclo durante sua estadia."], ["Você atende fora da Itália?", "Sim. Os programas online estão disponíveis em italiano, inglês e português."], ["Preciso fazer uma dieta extrema?", "Não. Meu trabalho começa com treino, rotina e hábitos sustentáveis. Necessidades nutricionais clínicas são tratadas com os profissionais habilitados."]] },
     final: { eyebrow: "O próximo passo mais simples", title: "Qual problema você quer resolver?", text: "Me escreva. Eu respondo pessoalmente e vemos se posso ajudar.", cta: "Falar com Willian", note: "Resposta direta · Sem robô · Sem compromisso" },
@@ -304,6 +355,57 @@ export default function HomeLanding() {
             ))}
           </div>
           <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer" className="cr-button cr-button-secondary"><Camera size={18} /> {c.social.cta}<ExternalLink size={15} /></a>
+        </div>
+      </section>
+
+      <section id="storie" className="cr-section cr-stories">
+        <div className="cr-shell">
+          <div className="cr-stories-head">
+            <div>
+              <p className="cr-eyebrow">{c.stories.eyebrow}</p>
+              <h2>{c.stories.title}</h2>
+            </div>
+            <p className="cr-intro">{c.stories.intro}</p>
+          </div>
+
+          <div className="cr-stories-list">
+            {c.stories.items.map((story, storyIndex) => {
+              const stages = [story.challenge, story.solution, story.result];
+              return (
+                <article className="cr-story-card" key={story.name}>
+                  <header className="cr-story-header">
+                    <span className="cr-story-flag" role="img" aria-label={story.country}>{story.flag}</span>
+                    <div className="cr-story-person">
+                      <p>{story.country}</p>
+                      <h3>{story.name}</h3>
+                    </div>
+                    <p className="cr-story-summary"><span>0{storyIndex + 1}</span>{story.summary}</p>
+                  </header>
+
+                  <div className="cr-story-stages">
+                    {stages.map((text, stageIndex) => {
+                      const Icon = storyIcons[stageIndex];
+                      return (
+                        <div className={`cr-story-stage ${stageIndex === 2 ? "is-result" : ""}`} key={c.stories.labels[stageIndex]}>
+                          <div className="cr-story-stage-label"><Icon size={16} aria-hidden="true" /><h4>{c.stories.labels[stageIndex]}</h4></div>
+                          <p>{text}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {(story.media.photo || story.media.video || story.media.beforeAfter.length > 0) && (
+                    <div className="cr-story-media">
+                      {story.media.photo && <img src={story.media.photo} alt={`${story.name} — ${story.summary}`} />}
+                      {story.media.video && <video src={story.media.video} controls playsInline />}
+                      {story.media.beforeAfter.map((image, index) => <figure key={image}><img src={image} alt={`${c.stories.mediaLabels[index]} — ${story.name}`} /><figcaption>{c.stories.mediaLabels[index]}</figcaption></figure>)}
+                    </div>
+                  )}
+                  {story.href && <a className="cr-text-link" href={story.href}>{c.stories.fullStory}<ArrowRight size={17} /></a>}
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
