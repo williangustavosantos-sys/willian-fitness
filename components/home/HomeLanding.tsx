@@ -251,9 +251,9 @@ export default function HomeLanding() {
   return (
     <>
       <section ref={heroRef} className="cr-hero" aria-labelledby="hero-question">
-        <video className="cr-hero-video" autoPlay muted loop playsInline poster="/images/about.jpg" aria-hidden="true">
-          <source src="/videos/hero-loop.mp4" type="video/mp4" />
-        </video>
+        <div className="cr-hero-brand-image" aria-hidden="true">
+          <img src="/images/about.jpg" alt="" fetchPriority="high" decoding="sync" />
+        </div>
         <div className="cr-hero-shade" />
         <div className="cr-shell cr-hero-inner">
           <div className="cr-hero-topline">
@@ -266,11 +266,6 @@ export default function HomeLanding() {
               </span>
             </div>
           </div>
-
-          <figure className="cr-hero-portrait">
-            <img src="/images/about.jpg" alt="Willian Personal Trainer" fetchPriority="high" decoding="sync" />
-            <figcaption>Willian</figcaption>
-          </figure>
 
           <div className="cr-hero-content">
             <button className="cr-question" onClick={() => setAnswerVisible(true)} aria-expanded={answerVisible}>
