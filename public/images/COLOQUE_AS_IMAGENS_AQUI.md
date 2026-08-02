@@ -9,7 +9,7 @@ Renomeie cada imagem conforme abaixo e cole nesta pasta:
 
 | Arquivo esperado | Qual foto usar |
 |------------------|----------------|
-| `logo.png`       | Logo dourado "WILLIAN PERSONAL TRAINER" (fundo preto) |
+| `willian-logo.png` | Novo logo esportivo "WILLIAN PERSONAL TRAINER" (fundo transparente) |
 | `hero.jpg`       | Foto de braços cruzados na academia (pose séria, fundo escuro) — **HERO PRINCIPAL** |
 | `about.jpg`      | Foto apontando para a câmera (pose animada, fundo academia) |
 | `profile.jpg`    | Qualquer outra foto de perfil (ex: com bola medicinal) |
@@ -20,7 +20,7 @@ Renomeie cada imagem conforme abaixo e cole nesta pasta:
 
 ## Onde cada imagem aparece no site
 
-- **`logo.png`** → Header (topo de todas as páginas) + aba do navegador
+- **`willian-logo.png`** → Cabeçalho, rodapé e páginas internas
 - **`hero.jpg`** → Fundo gigante da Home (primeira coisa que o visitante vê)
 - **`about.jpg`** → Seção "Sobre" na Home e página Serviços
 - **`profile.jpg`** → Página "Sobre mim" (biography) e Consultoria Fitness

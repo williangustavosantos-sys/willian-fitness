@@ -3,8 +3,8 @@
 import { MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
-const EMAIL = "profwillgustavo@gmail.com";
+const WHATSAPP = "393428369444";
+const EMAIL = "Profwillgustavo@gmail.com";
 
 export default function ContactSection() {
   const { tr } = useLocale();

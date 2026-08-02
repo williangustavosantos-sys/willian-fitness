@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
+const WHATSAPP = "393428369444";
 
 export default function WhatsAppButton() {
   const { tr } = useLocale();

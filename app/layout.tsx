@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Barlow_Condensed, Manrope } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/lib/LocaleContext";
 import Header from "@/components/Header";
@@ -7,53 +7,54 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
-const playfair = Playfair_Display({
+const display = Barlow_Condensed({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["700", "800", "900"],
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const body = Manrope({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-body",
   display: "swap",
 });
+
+const deploymentHost =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.VERCEL_URL;
+const metadataBase = deploymentHost
+  ? new URL(deploymentHost.startsWith("http") ? deploymentHost : `https://${deploymentHost}`)
+  : undefined;
 
 export const metadata: Metadata = {
-  title: "Willian Gustavo | Personal Trainer Milano | Fitness Coach",
-  description:
-    "Profissional brasileiro de fitness baseado em Milão, Itália. Personal Training, Performance Coaching & Wellness Consulting. 9+ anos de experiência.",
-  keywords: [
-    "Personal Trainer Milan",
-    "Personal Trainer Milano",
-    "Personal Trainer em Milão",
-    "Brazilian Personal Trainer Italy",
-    "Online Fitness Coach",
-    "Fitness Coach Milan",
-    "Executive Fitness Coach Milan",
-    "Personal Trainer Brasileiro na Itália",
-    "Consultoria Fitness Online",
-    "Willian Gustavo personal trainer",
-  ],
+  metadataBase,
+  title: "Willian Gustavo | Treino de verdade para a vida real",
+  description: "Personal trainer brasileiro em Milão e consultoria online. Treino personalizado, conteúdo fitness direto e parcerias com propósito.",
+  keywords: ["personal trainer Milão", "consultoria online fitness", "treino personalizado", "personal trainer brasileiro", "conteúdo fitness", "Willian Gustavo"],
   openGraph: {
-    title: "Willian Gustavo | Personal Trainer Milano",
-    description:
-      "Fitness Professional, Performance Coach & Wellness Consultant based in Milan, Italy.",
+    title: "Willian Gustavo | Treino de verdade para a vida real",
+    description: "Consultoria online, personal em Milão e conteúdo fitness sem complicação.",
     type: "website",
+    images: metadataBase
+      ? [{ url: "/og.png", width: 1731, height: 909, alt: "Willian Gustavo — treino de verdade para a vida real" }]
+      : undefined,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Willian Gustavo | Treino de verdade para a vida real",
+    description: "Consultoria online, personal em Milão e conteúdo fitness sem complicação.",
+    images: metadataBase ? ["/og.png"] : undefined,
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="bg-obsidian text-white font-sans antialiased">
+    <html lang="pt" className={`${display.variable} ${body.variable}`}>
+      <body>
         <LocaleProvider>
           <Header />
           <main>{children}</main>

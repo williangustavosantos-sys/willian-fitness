@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Check, Award, ArrowRight, MessageCircle } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
+const WHATSAPP = "393428369444";
 
 export default function AboutPage() {
   const { tr } = useLocale();
@@ -23,7 +23,7 @@ export default function AboutPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <img
-            src="/images/logo.png"
+            src="/images/willian-logo.png"
             alt="Willian Gustavo"
             className="h-20 md:h-24 w-auto object-contain mx-auto mb-6"
           />

@@ -6,8 +6,8 @@ import {
 } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
-const EMAIL = "profwillgustavo@gmail.com";
+const WHATSAPP = "393428369444";
+const EMAIL = "Profwillgustavo@gmail.com";
 
 export default function ContactPage() {
   const { tr } = useLocale();
@@ -70,7 +70,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-obsidian-50/40 to-obsidian" />
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <img
-            src="/images/logo.png"
+            src="/images/willian-logo.png"
             alt="Willian Gustavo"
             className="h-20 md:h-24 w-auto object-contain mx-auto mb-6"
           />
@@ -260,7 +260,7 @@ export default function ContactPage() {
                   </button>
 
                   <p className="text-white/25 text-xs text-center">
-                    {tr.contact.info.locationValue} · profwillgustavo@gmail.com
+                    {tr.contact.info.locationValue} · Profwillgustavo@gmail.com
                   </p>
                 </form>
               )}

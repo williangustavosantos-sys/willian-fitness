@@ -11,20 +11,20 @@ const config: Config = {
     extend: {
       colors: {
         gold: {
-          DEFAULT: "#C9A96E",
-          light: "#DFC08A",
-          dark: "#A8843E",
+          DEFAULT: "#B8FF31",
+          light: "#D8FF8F",
+          dark: "#75A600",
         },
         obsidian: {
-          DEFAULT: "#0a0a0a",
-          50: "#1a1a1a",
-          100: "#111111",
+          DEFAULT: "#080B16",
+          50: "#11172A",
+          100: "#060811",
         },
         smoke: "#f5f5f5",
       },
       fontFamily: {
-        display: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Impact", "sans-serif"],
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         widest2: "0.25em",

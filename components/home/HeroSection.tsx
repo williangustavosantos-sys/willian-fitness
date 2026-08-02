@@ -3,7 +3,7 @@
 import { ArrowDown, MessageCircle, ChevronRight, Star } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
+const WHATSAPP = "393428369444";
 
 export default function HeroSection() {
   const { tr } = useLocale();

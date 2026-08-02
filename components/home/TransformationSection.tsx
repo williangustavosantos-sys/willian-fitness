@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { TrendingUp, Award, Zap, MessageCircle } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
+const WHATSAPP = "393428369444";
 
 // Transformation results data (works across all locales)
 const results = [

@@ -1,171 +1,94 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, MessageCircle, X } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 import { Locale, localeNames } from "@/lib/i18n";
 
-const WHATSAPP = "+393428369444";
+const WHATSAPP = "393428369444";
+
+const copy = {
+  pt: { links: [["Conteúdo", "/#conteudo"], ["Consultoria", "/#consultoria"], ["Método", "/#metodo"], ["Sobre", "/#sobre"], ["Parcerias", "/#parcerias"]], cta: "Vamos conversar" },
+  en: { links: [["Content", "/#conteudo"], ["Coaching", "/#consultoria"], ["Method", "/#metodo"], ["About", "/#sobre"], ["Partnerships", "/#parcerias"]], cta: "Let’s talk" },
+  it: { links: [["Contenuti", "/#conteudo"], ["Consulenza", "/#consultoria"], ["Metodo", "/#metodo"], ["Chi sono", "/#sobre"], ["Partnership", "/#parcerias"]], cta: "Parliamone" },
+} as const;
 
 export default function Header() {
-  const { locale, setLocale, tr } = useLocale();
+  const { locale, setLocale } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const c = copy[locale] ?? copy.pt;
+  const message = encodeURIComponent(
+    locale === "pt" ? "Olá, Willian! Vi seu site e quero saber mais." : locale === "it" ? "Ciao Willian! Ho visto il tuo sito e vorrei saperne di più." : "Hi Willian! I saw your website and would like to know more."
+  );
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { label: tr.nav.home, href: "/" },
-    { label: tr.nav.about, href: "/about" },
-    { label: tr.nav.services, href: "/services" },
-    { label: tr.nav.contact, href: "/contact" },
-  ];
-
-  const waMsg = encodeURIComponent(tr.whatsapp.defaultMsg);
-
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          scrolled
-            ? "bg-obsidian/98 backdrop-blur-md border-b border-white/5 py-1"
-            : "bg-transparent py-3"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4">
-
-          {/* ── LOGO ── grande e com fundo garantido */}
-          <Link href="/" className="flex items-center shrink-0 group">
-            {/* Fundo escuro garante o logo dourado sempre visível */}
-            <div className="bg-obsidian/80 rounded-sm px-2 py-1">
-              <img
-                src="/images/logo.png"
-                alt="Willian Gustavo Personal Trainer"
-                className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
-                  scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
-                }`}
-              />
-            </div>
+      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "border-b border-white/10 bg-[#080b16]/90 py-2 shadow-xl backdrop-blur-xl" : "bg-transparent py-4"}`}>
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-5 sm:px-8 lg:px-12 xl:px-20">
+          <Link href="/" className="flex items-center text-white" aria-label="Willian Gustavo — início">
+            <img
+              src="/images/willian-logo.png"
+              alt="Willian Personal Trainer"
+              className="h-10 w-auto object-contain sm:h-11"
+            />
           </Link>
 
-          {/* ── NAV DESKTOP ── */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-10">
-            {navLinks.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-white/80 hover:text-white text-xs lg:text-sm tracking-widest uppercase transition-colors duration-200 relative group font-semibold"
-              >
-                {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
-              </Link>
+          <nav className="hidden items-center gap-6 lg:flex">
+            {c.links.map(([label, href]) => (
+              <Link key={href} href={href} className="text-[11px] font-black uppercase tracking-[.13em] text-white/60 transition-colors hover:text-[#b8ff31]">{label}</Link>
             ))}
           </nav>
 
-          {/* ── DIREITA: idioma + CTA ── */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            <div className="flex items-center border border-white/15 overflow-hidden">
-              {(Object.keys(localeNames) as Locale[]).map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLocale(l)}
-                  className={`px-3 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
-                    locale === l
-                      ? "bg-gold text-obsidian"
-                      : "text-white/50 hover:text-white hover:bg-white/5"
-                  }`}
-                >
-                  {localeNames[l]}
+          <div className="hidden items-center gap-3 md:flex">
+            <div className="flex rounded-full border border-white/15 bg-white/[.04] p-1">
+              {(Object.keys(localeNames) as Locale[]).map((item) => (
+                <button key={item} onClick={() => setLocale(item)} className={`rounded-full px-2.5 py-1.5 text-[9px] font-black transition-colors ${locale === item ? "bg-white text-[#080b16]" : "text-white/45 hover:text-white"}`} aria-label={`Mudar idioma para ${localeNames[item]}`}>
+                  {localeNames[item]}
                 </button>
               ))}
             </div>
-            <a
-              href={`https://wa.me/${WHATSAPP}?text=${waMsg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold text-xs py-3 px-5"
-            >
-              <MessageCircle size={14} />
-              {tr.nav.cta}
+            <a href={`https://wa.me/${WHATSAPP}?text=${message}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#b8ff31] px-5 py-3 text-[11px] font-black uppercase tracking-[.08em] text-[#080b16] transition-transform hover:-translate-y-0.5">
+              <MessageCircle size={16} /> {c.cta}
             </a>
           </div>
 
-          {/* ── MOBILE: idioma + hamburguer ── */}
-          <div className="md:hidden flex items-center gap-2 shrink-0">
-            <div className="flex items-center border border-white/15 overflow-hidden">
-              {(Object.keys(localeNames) as Locale[]).map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLocale(l)}
-                  className={`px-2 py-1.5 text-[10px] font-bold tracking-wider uppercase transition-all ${
-                    locale === l ? "bg-gold text-obsidian" : "text-white/50"
-                  }`}
-                >
-                  {localeNames[l]}
-                </button>
-              ))}
-            </div>
-            <button
-              className="text-white p-2"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
-            >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
+          <button onClick={() => setMenuOpen(true)} className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/[.05] text-white md:hidden" aria-label="Abrir menu" aria-expanded={menuOpen}>
+            <Menu size={22} />
+          </button>
         </div>
       </header>
 
-      {/* ── MENU MOBILE ── */}
-      <div
-        className={`fixed inset-0 z-40 bg-obsidian flex flex-col transition-transform duration-300 md:hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
-          <img
-            src="/images/logo.png"
-            alt="Willian Gustavo"
-            className="h-16 w-auto object-contain"
-          />
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-white/60 hover:text-white p-1"
-          >
-            <X size={26} />
-          </button>
+      <div className={`fixed inset-0 z-[60] bg-[#080b16] px-5 py-5 transition-transform duration-300 md:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div className="flex items-center justify-between">
+          <Link href="/" onClick={() => setMenuOpen(false)} className="flex items-center text-white">
+            <img src="/images/willian-logo.png" alt="Willian Personal Trainer" className="h-11 w-auto object-contain" />
+          </Link>
+          <button onClick={() => setMenuOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white" aria-label="Fechar menu"><X size={22} /></button>
         </div>
-
-        <nav className="flex flex-col px-6 pt-6 gap-0 flex-1">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-white text-2xl font-display font-semibold tracking-wide border-b border-white/5 py-5 hover:text-gold transition-colors"
-              style={{ fontFamily: "var(--font-playfair)" }}
-            >
-              {l.label}
+        <nav className="mt-14 flex flex-col">
+          {c.links.map(([label, href], index) => (
+            <Link key={href} href={href} onClick={() => setMenuOpen(false)} className="group flex items-center justify-between border-b border-white/10 py-5 text-white">
+              <span className="display-title text-4xl uppercase">{label}</span>
+              <span className="text-xs font-black text-[#b8ff31]">0{index + 1}</span>
             </Link>
           ))}
         </nav>
-
-        <div className="px-6 pb-10 pt-6">
-          <a
-            href={`https://wa.me/${WHATSAPP}?text=${waMsg}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold justify-center w-full text-sm py-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            <MessageCircle size={18} />
-            {tr.nav.cta}
-          </a>
+        <div className="mt-8 flex items-center justify-between gap-4">
+          <div className="flex rounded-full border border-white/15 p-1">
+            {(Object.keys(localeNames) as Locale[]).map((item) => (
+              <button key={item} onClick={() => setLocale(item)} className={`rounded-full px-4 py-2 text-[10px] font-black ${locale === item ? "bg-white text-[#080b16]" : "text-white/45"}`}>{localeNames[item]}</button>
+            ))}
+          </div>
+          <a href={`https://wa.me/${WHATSAPP}?text=${message}`} target="_blank" rel="noopener noreferrer" className="grid h-12 w-12 place-items-center rounded-full bg-[#b8ff31] text-[#080b16]" aria-label={c.cta}><MessageCircle size={21} /></a>
         </div>
       </div>
     </>

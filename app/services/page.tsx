@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "@/lib/LocaleContext";
 
-const WHATSAPP = "+393428369444";
+const WHATSAPP = "393428369444";
 
 const iconMap: Record<string, React.ElementType> = {
   Dumbbell, Globe, Briefcase, Flame, Building2, Lightbulb,
@@ -195,7 +195,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-obsidian-50/40 to-obsidian" />
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <img
-            src="/images/logo.png"
+            src="/images/willian-logo.png"
             alt="Willian Gustavo"
             className="h-20 md:h-24 w-auto object-contain mx-auto mb-6"
           />
