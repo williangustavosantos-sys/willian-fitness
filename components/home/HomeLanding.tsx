@@ -267,6 +267,11 @@ export default function HomeLanding() {
             </div>
           </div>
 
+          <figure className="cr-hero-portrait">
+            <img src="/images/about.jpg" alt="Willian Personal Trainer" fetchPriority="high" decoding="sync" />
+            <figcaption>Willian</figcaption>
+          </figure>
+
           <div className="cr-hero-content">
             <button className="cr-question" onClick={() => setAnswerVisible(true)} aria-expanded={answerVisible}>
               <h1 id="hero-question">{c.hero.questions[activeQuestion][0]}</h1>
