@@ -27,7 +27,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-black text-white">4. Account e piattaforme di terze parti</h2>
-            <p className="mt-2">Eventuali integrazioni con piattaforme social richiedono l'autorizzazione dell'utente e restano soggette anche ai termini e alle regole della piattaforma interessata. L'utente può revocare le autorizzazioni attraverso le impostazioni del relativo servizio.</p>
+            <p className="mt-2">Eventuali integrazioni con piattaforme social richiedono l'autorizzazione dell'utente e restano soggette anche ai termini e alle regole della piattaforma interessata. Ogni creator autorizza esclusivamente il proprio account e può revocare le autorizzazioni attraverso le impostazioni del relativo servizio.</p>
           </section>
           <section>
             <h2 className="text-xl font-black text-white">5. Proprietà intellettuale</h2>

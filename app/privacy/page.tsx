@@ -27,7 +27,7 @@ export default function PrivacyPage() {
           </section>
           <section>
             <h2 className="text-xl font-black text-white">4. Integrazioni social</h2>
-            <p className="mt-2">Quando vengono utilizzate integrazioni con piattaforme social, incluso TikTok, l'accesso avviene solo dopo autorizzazione esplicita dell'utente e nei limiti delle autorizzazioni concesse. Le integrazioni non vengono utilizzate per accedere ad account non autorizzati o per automatizzare interazioni non richieste.</p>
+            <p className="mt-2">Quando vengono utilizzate integrazioni con piattaforme social, incluso TikTok, l'accesso avviene solo dopo autorizzazione esplicita dell'utente e nei limiti delle autorizzazioni concesse. Ogni creator collega e autorizza il proprio account. Le integrazioni non vengono utilizzate per accedere ad account non autorizzati o per automatizzare interazioni non richieste. L'autorizzazione può essere revocata attraverso le impostazioni del servizio collegato.</p>
           </section>
           <section>
             <h2 className="text-xl font-black text-white">5. Fornitori esterni</h2>

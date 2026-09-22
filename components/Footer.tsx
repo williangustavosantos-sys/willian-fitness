@@ -15,9 +15,9 @@ const copy = {
 } as const;
 
 const legalCopy = {
-  it: { about: "Willian", services: "Servizi", contact: "Contatti", privacy: "Privacy Policy", terms: "Termini di servizio" },
-  en: { about: "About", services: "Services", contact: "Contact", privacy: "Privacy Policy", terms: "Terms of Service" },
-  pt: { about: "Willian", services: "Serviços", contact: "Contato", privacy: "Política de Privacidade", terms: "Termos de Serviço" },
+  it: { about: "Willian", services: "Servizi", contact: "Contatti", privacy: "Privacy Policy", terms: "Termini di servizio", creator: "Creator Tools" },
+  en: { about: "About", services: "Services", contact: "Contact", privacy: "Privacy Policy", terms: "Terms of Service", creator: "Creator Tools" },
+  pt: { about: "Willian", services: "Serviços", contact: "Contato", privacy: "Política de Privacidade", terms: "Termos de Serviço", creator: "Creator Tools" },
 } as const;
 
 export default function Footer() {
@@ -50,6 +50,7 @@ export default function Footer() {
         <Link href="/about" className="hover:text-[#C8FF3D]">{legal.about}</Link>
         <Link href="/services" className="hover:text-[#C8FF3D]">{legal.services}</Link>
         <Link href="/contact" className="hover:text-[#C8FF3D]">{legal.contact}</Link>
+        <Link href="/creator" className="hover:text-[#C8FF3D]">{legal.creator}</Link>
         <Link href="/privacy" className="hover:text-[#C8FF3D]">{legal.privacy}</Link>
         <Link href="/terms" className="hover:text-[#C8FF3D]">{legal.terms}</Link>
       </div>

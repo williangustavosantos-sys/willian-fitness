@@ -10,9 +10,9 @@ const WHATSAPP = "393428369444";
 const languageOrder: Locale[] = ["it", "en", "pt"];
 
 const copy = {
-  it: { links: [["Soluzioni", "/#soluzioni"], ["Programmi", "/#programmi"], ["Come funziona", "/#come-funziona"], ["Willian", "/#willian"], ["Storie", "/#storie"], ["Milano", "/#milano"]], cta: "Parla con Willian", open: "Apri menu", close: "Chiudi menu" },
-  en: { links: [["Solutions", "/#soluzioni"], ["Programs", "/#programmi"], ["How it works", "/#come-funziona"], ["Willian", "/#willian"], ["Stories", "/#storie"], ["Milan", "/#milano"]], cta: "Talk to Willian", open: "Open menu", close: "Close menu" },
-  pt: { links: [["Soluções", "/#soluzioni"], ["Programas", "/#programmi"], ["Como funciona", "/#come-funziona"], ["Willian", "/#willian"], ["Histórias", "/#storie"], ["Milão", "/#milano"]], cta: "Falar com Willian", open: "Abrir menu", close: "Fechar menu" },
+  it: { links: [["Soluzioni", "/#soluzioni"], ["Programmi", "/#programmi"], ["Come funziona", "/#come-funziona"], ["Willian", "/#willian"], ["Storie", "/#storie"], ["Milano", "/#milano"], ["Creator Tools", "/creator"]], cta: "Parla con Willian", open: "Apri menu", close: "Chiudi menu" },
+  en: { links: [["Solutions", "/#soluzioni"], ["Programs", "/#programmi"], ["How it works", "/#come-funziona"], ["Willian", "/#willian"], ["Stories", "/#storie"], ["Milan", "/#milano"], ["Creator Tools", "/creator"]], cta: "Talk to Willian", open: "Open menu", close: "Close menu" },
+  pt: { links: [["Soluções", "/#soluzioni"], ["Programas", "/#programmi"], ["Como funciona", "/#come-funziona"], ["Willian", "/#willian"], ["Histórias", "/#storie"], ["Milão", "/#milano"], ["Creator Tools", "/creator"]], cta: "Falar com Willian", open: "Abrir menu", close: "Fechar menu" },
 } as const;
 
 export default function Header() {
