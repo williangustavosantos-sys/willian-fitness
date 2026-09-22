@@ -14,9 +14,16 @@ const copy = {
   pt: { tagline: "Treino construído para a vida real.", nav: "Explore", contact: "Contato", links: [["Soluções", "/#soluzioni"], ["Programas", "/#programmi"], ["Histórias reais", "/#storie"], ["Instagram", "/#instagram"], ["FAQ", "/#faq"]], location: "Milão, Itália · programas online", rights: "Todos os direitos reservados." },
 } as const;
 
+const legalCopy = {
+  it: { about: "Willian", services: "Servizi", contact: "Contatti", privacy: "Privacy Policy", terms: "Termini di servizio" },
+  en: { about: "About", services: "Services", contact: "Contact", privacy: "Privacy Policy", terms: "Terms of Service" },
+  pt: { about: "Willian", services: "Serviços", contact: "Contato", privacy: "Política de Privacidade", terms: "Termos de Serviço" },
+} as const;
+
 export default function Footer() {
   const { locale } = useLocale();
   const c = copy[locale] ?? copy.it;
+  const legal = legalCopy[locale] ?? legalCopy.it;
 
   return (
     <footer className="border-t border-[#334155] bg-[#111827] px-4 pb-8 pt-16 text-white sm:px-6 lg:px-12">
@@ -39,7 +46,14 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto mt-14 flex max-w-[82rem] flex-col gap-2 border-t border-[#334155] pt-7 text-[10px] uppercase tracking-[.08em] text-[#CBD5E1]/45 sm:flex-row sm:justify-between"><p>© {new Date().getFullYear()} Willian Gustavo dos Santos.</p><p>{c.rights}</p></div>
+      <div className="mx-auto mt-14 flex max-w-[82rem] flex-wrap items-center gap-x-5 gap-y-3 border-t border-[#334155] pt-7 text-[11px] font-semibold text-[#CBD5E1]/70">
+        <Link href="/about" className="hover:text-[#C8FF3D]">{legal.about}</Link>
+        <Link href="/services" className="hover:text-[#C8FF3D]">{legal.services}</Link>
+        <Link href="/contact" className="hover:text-[#C8FF3D]">{legal.contact}</Link>
+        <Link href="/privacy" className="hover:text-[#C8FF3D]">{legal.privacy}</Link>
+        <Link href="/terms" className="hover:text-[#C8FF3D]">{legal.terms}</Link>
+      </div>
+      <div className="mx-auto mt-5 flex max-w-[82rem] flex-col gap-2 text-[10px] uppercase tracking-[.08em] text-[#CBD5E1]/45 sm:flex-row sm:justify-between"><p>© {new Date().getFullYear()} Willian Gustavo dos Santos.</p><p>{c.rights}</p></div>
     </footer>
   );
 }

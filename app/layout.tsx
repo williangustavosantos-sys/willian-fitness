@@ -25,13 +25,19 @@ const deploymentHost =
   process.env.VERCEL_URL;
 const metadataBase = deploymentHost
   ? new URL(deploymentHost.startsWith("http") ? deploymentHost : `https://${deploymentHost}`)
-  : undefined;
+  : new URL("https://willian-fitness.vercel.app");
 
 export const metadata: Metadata = {
   metadataBase,
-  title: "Willian Personal Trainer | Allenamento a Milano e online",
+  applicationName: "Willian Fitness",
+  title: "Willian Fitness | Personal Trainer a Milano e online",
   description: "Allenamenti personali a Milano e programmi online costruiti intorno alla tua vita. Parla direttamente con Willian.",
-  keywords: ["personal trainer Milano", "allenamento online", "personal trainer brasiliano Milano", "fitness Milano", "Willian personal trainer"],
+  keywords: ["personal trainer Milano", "allenamento online", "personal trainer brasiliano Milano", "fitness Milano", "Willian Fitness", "Willian personal trainer"],
+  icons: {
+    icon: "/tiktok-app-icon.png",
+    shortcut: "/tiktok-app-icon.png",
+    apple: "/tiktok-app-icon.png",
+  },
   openGraph: {
     title: "Willian Personal Trainer | Milano e online",
     description: "Il tuo allenamento deve adattarsi alla tua vita, non il contrario.",
